@@ -14,7 +14,7 @@
 
 use crate::error_code::ErrorCode;
 use crate::session::SessionState;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Debug)]
 pub struct QueryStats {
@@ -53,7 +53,7 @@ pub struct ProgressValues {
     pub bytes: usize,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SchemaField {
     pub name: String,
     #[serde(rename = "type")]

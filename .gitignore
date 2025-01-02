@@ -1,6 +1,6 @@
 .vscode
 .idea
-target/
+**/target
 Cargo.lock
 venv/
 
@@ -9,3 +9,4 @@ venv/
 
 /dist
 
+**/.DS_Store

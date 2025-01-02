@@ -48,6 +48,7 @@ pub enum Error {
     #[cfg(feature = "flight-sql")]
     Arrow(arrow_schema::ArrowError),
     Convert(ConvertError),
+    Unexpected(String),
 }
 
 impl std::fmt::Display for Error {
@@ -57,7 +58,7 @@ impl std::fmt::Display for Error {
             Error::Protocol(msg) => write!(f, "ProtocolError: {}", msg),
             Error::Transport(msg) => write!(f, "TransportError: {}", msg),
             Error::IO(msg) => write!(f, "IOError: {}", msg),
-
+            Error::Unexpected(msg) => write!(f, "Unexpected: {}", msg),
             Error::BadArgument(msg) => write!(f, "BadArgument: {}", msg),
             Error::InvalidResponse(msg) => write!(f, "ResponseError: {}", msg),
             #[cfg(feature = "flight-sql")]
